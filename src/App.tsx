@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <h1>Guitar Coder</h1>
+      <h1>Guitar Chorder</h1>
     </>
   );
 }
