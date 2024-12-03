@@ -13,7 +13,7 @@ declare global {
 
   // 코드 정보를 담은 객체
   type Chord = {
-    code: string;
+    chord: string;
     capo: number; // 카포 사용 여부 (0: 사용하지 않음, 1~: 카포 번호)
   };
 
