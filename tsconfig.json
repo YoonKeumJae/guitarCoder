@@ -3,5 +3,13 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    // 절대경로 설정
+    "paths": {
+      "@_types/*": ["src/types/*"]
+    }
+  }
+  // "include": ["./src/types/Fingering.d.ts"]
 }
