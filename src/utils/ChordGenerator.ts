@@ -1,6 +1,6 @@
-import ChordData from "./ChordData.json";
+import ChordData from "../ChordData.json";
 /**
- * 
+ *
  * @param {string} chordName Chord's name to generate
  * @returns {Chord} Chord's data object
  */
