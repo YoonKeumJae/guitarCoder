@@ -1,6 +1,24 @@
 import ChordGenerator from "./utils/ChordGenerator";
 import SVGrenderer from "./utils/SVGrenderer/SVGrenderer";
 import { useState } from "react";
+import styled from "styled-components";
+
+const Wrapper = styled.div``;
+const Title = styled.div`
+  font-size: 2rem;
+  font-weight: bold;
+`;
+const Form = styled.form`
+  display: flex;
+  gap: 10px;
+`;
+const Button = styled.button`
+  padding: 10px;
+  background-color: #5959d9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+`;
 
 function App() {
   const [inputChord, setInputChord] = useState<string>("");
@@ -17,16 +35,15 @@ function App() {
   };
 
   return (
-    <>
-      <h1>Guitar Chorder</h1>
-      <form onSubmit={(e) => onSubmit(e)}>
-        <p>Input your code: </p>
+    <Wrapper>
+      <Title>Guitar Chorder</Title>
+      <p>Input your code: </p>
+      <Form onSubmit={(e) => onSubmit(e)}>
         <input type="text" onChange={(e) => setInputChord(e.target.value)} />
-        <button type="submit">Submit</button>
-      </form>
-      <h4>Your code is: {JSON.stringify(chord)}</h4>
+        <Button type="submit">Submit</Button>
+      </Form>
       {chord && <SVGrenderer chord={chord} />}
-    </>
+    </Wrapper>
   );
 }
 
