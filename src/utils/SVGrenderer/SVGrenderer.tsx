@@ -11,9 +11,9 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
   const omitStrings: number[] = chord.omit_strings || [];
   const openStrings: number[] = chord.open_strings || [];
 
-  const svgRef = useRef<SVGSVGElement>(null);
+  const svgRef = useRef<SVGSVGElement | null>(null);
 
-  const onClickSave = () => {
+  const onClickSaveAsSVG = () => {
     const svgElement = svgRef.current;
     if (!svgElement) return;
     const serializer = new XMLSerializer();
@@ -26,6 +26,43 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const onClickSaveAsPNG = () => {
+    const svgElement = svgRef.current;
+    if (!svgElement) return;
+    const serializer = new XMLSerializer();
+    const svgData = serializer.serializeToString(svgElement);
+    const svgBlob = new Blob([svgData], {
+      type: "image/svg+xml;charset=utf-8",
+    });
+    const url = URL.createObjectURL(svgBlob);
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      console.error("Failed to get canvas context.");
+      return;
+    }
+    const svgWidth = svgElement.clientWidth || 200; 
+    const svgHeight = svgElement.clientHeight || 200;
+    canvas.width = svgWidth;
+    canvas.height = svgHeight;
+    const img = new Image();
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0);
+      const pngUrl = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = pngUrl;
+      link.download = `GuitarChorder-${name}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    };
+    img.onerror = () => {
+      console.error("Failed to load SVG as image.");
+    };
+    img.src = url;
   };
 
   return (
@@ -213,7 +250,8 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
           );
         })}
       </svg>
-      <button onClick={onClickSave}>Save as SVG</button>
+      <button onClick={onClickSaveAsSVG}>Save as SVG</button>
+      <button onClick={onClickSaveAsPNG}>Save as PNG</button>
     </>
   );
 };
