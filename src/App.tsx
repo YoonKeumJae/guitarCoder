@@ -1,9 +1,10 @@
 import ChordGenerator from "./utils/ChordGenerator";
+import SVGrenderer from "./utils/SVGrenderer/SVGrenderer";
 import { useState } from "react";
 
 function App() {
-  const [inputChord, setInputChord] = useState("");
-  const [chord, setChord] = useState({});
+  const [inputChord, setInputChord] = useState<string>("");
+  const [chord, setChord] = useState<Chord | null>(null);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,6 +25,7 @@ function App() {
         <button type="submit">Submit</button>
       </form>
       <h4>Your code is: {JSON.stringify(chord)}</h4>
+      {chord && <SVGrenderer chord={chord} />}
     </>
   );
 }
