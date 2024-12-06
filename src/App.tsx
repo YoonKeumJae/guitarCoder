@@ -3,7 +3,16 @@ import SVGrenderer from "./utils/SVGrenderer/SVGrenderer";
 import { useState } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  padding: 10% 20%;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`;
 const Title = styled.div`
   font-size: 2rem;
   font-weight: bold;
@@ -11,6 +20,14 @@ const Title = styled.div`
 const Form = styled.form`
   display: flex;
   gap: 10px;
+`;
+const Input = styled.input`
+  border-radius: 5px;
+  border: 2px solid #5959d9;
+  padding: 10px;
+  :focus {
+    outline: none;
+  }
 `;
 const Button = styled.button`
   padding: 10px;
@@ -37,9 +54,12 @@ function App() {
   return (
     <Wrapper>
       <Title>Guitar Chorder</Title>
-      <p>Input your code: </p>
       <Form onSubmit={(e) => onSubmit(e)}>
-        <input type="text" onChange={(e) => setInputChord(e.target.value)} />
+        <Input
+          type="text"
+          placeholder="Input your code"
+          onChange={(e) => setInputChord(e.target.value)}
+        />
         <Button type="submit">Submit</Button>
       </Form>
       {chord && <SVGrenderer chord={chord} />}

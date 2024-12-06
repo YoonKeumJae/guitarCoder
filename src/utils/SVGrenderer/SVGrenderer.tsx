@@ -1,12 +1,16 @@
 import { useRef } from "react";
 import styled from "styled-components";
 import ImageDownloader from "./ImageDownloader";
+import React from "react";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
-const SvgWrapper = styled.div``;
+const SvgWrapper = styled.div`
+  padding: 20px 0;
+`;
 const ButtonsWrapper = styled.div`
   display: flex;
   gap: 10px;
@@ -69,16 +73,16 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
           <text
             x="120"
             y="40"
-            font-family="Arial"
-            font-size="40"
+            fontFamily="Arial"
+            fontSize="40"
             fill="black"
-            text-anchor="middle"
-            dominant-baseline="middle"
+            textAnchor="middle"
+            dominantBaseline="middle"
           >
             {name}
           </text>
           {/* empty string */}
-          {openStrings?.map((string: number) => {
+          {openStrings?.map((string: number, index: number) => {
             return (
               <circle
                 cx={20 + 40 * (6 - string)}
@@ -86,22 +90,23 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
                 r="10"
                 fill="none"
                 stroke="black"
-                stroke-width="2"
-                dominant-baseline="middle"
+                strokeWidth="2"
+                dominantBaseline="middle"
+                key={`open-string-${index}`}
               />
             );
           })}
           {/* omit string */}
-          {omitStrings?.map((string: number) => {
+          {omitStrings?.map((string: number, index: number) => {
             return (
-              <>
+              <React.Fragment key={`omit${index}`}>
                 <line
                   x1={10 + 40 * (6 - string)}
                   y1="70"
                   x2={30 + 40 * (6 - string)}
                   y2="90"
                   stroke="black"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
                 <line
                   x1={30 + 40 * (6 - string)}
@@ -109,9 +114,9 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
                   x2={10 + 40 * (6 - string)}
                   y2="90"
                   stroke="black"
-                  stroke-width="2"
+                  strokeWidth="2"
                 />
-              </>
+              </React.Fragment>
             );
           })}
           {/* <!--줄--> */}
@@ -121,7 +126,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="20"
             y2="300"
             stroke="black"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <line
             x1="60"
@@ -129,7 +134,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="60"
             y2="300"
             stroke="black"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <line
             x1="100"
@@ -137,7 +142,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="100"
             y2="300"
             stroke="black"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <line
             x1="140"
@@ -145,7 +150,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="140"
             y2="300"
             stroke="black"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <line
             x1="180"
@@ -153,7 +158,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="180"
             y2="300"
             stroke="black"
-            stroke-width="2"
+            strokeWidth="2"
           />
           <line
             x1="220"
@@ -161,7 +166,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="220"
             y2="300"
             stroke="black"
-            stroke-width="2"
+            strokeWidth="2"
           />
           {/* <!--0번--> */}
           <line
@@ -170,7 +175,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="221"
             y2="100"
             stroke="black"
-            stroke-width="5"
+            strokeWidth="5"
           />
           {/* <!--프렛--> */}
           <line
@@ -179,7 +184,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="220"
             y2="100"
             stroke="black"
-            stroke-width="1"
+            strokeWidth="1"
           />
           <line
             x1="20"
@@ -187,7 +192,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="220"
             y2="150"
             stroke="black"
-            stroke-width="1"
+            strokeWidth="1"
           />
           <line
             x1="20"
@@ -195,7 +200,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="220"
             y2="200"
             stroke="black"
-            stroke-width="1"
+            strokeWidth="1"
           />
           <line
             x1="20"
@@ -203,7 +208,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="220"
             y2="250"
             stroke="black"
-            stroke-width="1"
+            strokeWidth="1"
           />
           <line
             x1="20"
@@ -211,10 +216,10 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
             x2="220"
             y2="300"
             stroke="black"
-            stroke-width="1"
+            strokeWidth="1"
           />
           {/* <!--손가락 번호--> */}
-          {frets.map((fret: Fret) => {
+          {frets.map((fret: Fret, index: number) => {
             const string: number = fret.string;
             const fretNumber: number = fret.fret;
             const to_barre = fret.barre?.to_string;
@@ -223,12 +228,13 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
               to_barre && from_barre ? from_barre - to_barre + 1 : 0;
 
             return (
-              <>
+              <React.Fragment>
                 <circle
                   cx={20 + 40 * (6 - string)}
                   cy={125 + 50 * (fretNumber - 1)}
                   r="15"
                   fill="black"
+                  key={`fret-circle-${index}`}
                 />
                 {to_barre !== undefined && from_barre !== undefined && (
                   <rect
@@ -239,7 +245,7 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
                     rx="15"
                   />
                 )}
-              </>
+              </React.Fragment>
             );
           })}
         </svg>
