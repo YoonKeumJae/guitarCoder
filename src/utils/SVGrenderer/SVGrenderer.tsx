@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+const SvgWrapper = styled.div``;
 const ButtonsWrapper = styled.div`
   display: flex;
   gap: 10px;
