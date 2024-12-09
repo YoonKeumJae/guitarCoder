@@ -2,6 +2,9 @@ import { useRef } from "react";
 import styled from "styled-components";
 import ImageDownloader from "./ImageDownloader";
 import React from "react";
+import Table from "./Table";
+import IsStringOpen from "./IsStringOpen";
+import FretNumber from "./FretNumber";
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,7 +12,11 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 const SvgWrapper = styled.div`
-  padding: 20px 0;
+  padding: 20px;
+  border: 4px solid #5959d9;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: white;
 `;
 const ButtonsWrapper = styled.div`
   display: flex;
@@ -22,6 +29,9 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
 `;
+const SVG = styled.svg``;
+const Text = styled.text``;
+
 interface SVGrendererProps {
   chord: Chord;
 }
@@ -61,194 +71,40 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
     ImageDownloader(svgElement, "jpg", name);
   };
 
+  // TODO: width, height를 props로 받아와 상대적인 위치를 계산해 SVG 코드 생성
+  const width: number = 300;
+  const height: number = 320;
+  const chordNameSize: number = 70;
+  const chordNameColor: string = "black";
+
   return (
     <Wrapper>
       <SvgWrapper>
-        <svg
-          width="240"
-          height="310"
+        <SVG
+          width={width}
+          height={height}
           xmlns="http://www.w3.org/2000/svg"
           ref={svgRef}
         >
-          <text
-            x="120"
-            y="40"
+          <Text
+            x={width / 2} // 120
+            y={height / 8} // 40
             fontFamily="Arial"
-            fontSize="40"
-            fill="black"
+            fontSize={chordNameSize}
+            fill={chordNameColor}
             textAnchor="middle"
             dominantBaseline="middle"
           >
             {name}
-          </text>
-          {/* empty string */}
-          {openStrings?.map((string: number, index: number) => {
-            return (
-              <circle
-                cx={20 + 40 * (6 - string)}
-                cy="80"
-                r="10"
-                fill="none"
-                stroke="black"
-                strokeWidth="2"
-                dominantBaseline="middle"
-                key={`open-string-${index}`}
-              />
-            );
-          })}
-          {/* omit string */}
-          {omitStrings?.map((string: number, index: number) => {
-            return (
-              <React.Fragment key={`omit${index}`}>
-                <line
-                  x1={10 + 40 * (6 - string)}
-                  y1="70"
-                  x2={30 + 40 * (6 - string)}
-                  y2="90"
-                  stroke="black"
-                  strokeWidth="2"
-                />
-                <line
-                  x1={30 + 40 * (6 - string)}
-                  y1="70"
-                  x2={10 + 40 * (6 - string)}
-                  y2="90"
-                  stroke="black"
-                  strokeWidth="2"
-                />
-              </React.Fragment>
-            );
-          })}
-          {/* <!--줄--> */}
-          <line
-            x1="20"
-            y1="100"
-            x2="20"
-            y2="300"
-            stroke="black"
-            strokeWidth="2"
+          </Text>
+          <IsStringOpen
+            openStrings={openStrings}
+            omitStrings={omitStrings}
+            gap={40}
           />
-          <line
-            x1="60"
-            y1="100"
-            x2="60"
-            y2="300"
-            stroke="black"
-            strokeWidth="2"
-          />
-          <line
-            x1="100"
-            y1="100"
-            x2="100"
-            y2="300"
-            stroke="black"
-            strokeWidth="2"
-          />
-          <line
-            x1="140"
-            y1="100"
-            x2="140"
-            y2="300"
-            stroke="black"
-            strokeWidth="2"
-          />
-          <line
-            x1="180"
-            y1="100"
-            x2="180"
-            y2="300"
-            stroke="black"
-            strokeWidth="2"
-          />
-          <line
-            x1="220"
-            y1="100"
-            x2="220"
-            y2="300"
-            stroke="black"
-            strokeWidth="2"
-          />
-          {/* <!--0번--> */}
-          <line
-            x1="19"
-            y1="100"
-            x2="221"
-            y2="100"
-            stroke="black"
-            strokeWidth="5"
-          />
-          {/* <!--프렛--> */}
-          <line
-            x1="20"
-            y1="100"
-            x2="220"
-            y2="100"
-            stroke="black"
-            strokeWidth="1"
-          />
-          <line
-            x1="20"
-            y1="150"
-            x2="220"
-            y2="150"
-            stroke="black"
-            strokeWidth="1"
-          />
-          <line
-            x1="20"
-            y1="200"
-            x2="220"
-            y2="200"
-            stroke="black"
-            strokeWidth="1"
-          />
-          <line
-            x1="20"
-            y1="250"
-            x2="220"
-            y2="250"
-            stroke="black"
-            strokeWidth="1"
-          />
-          <line
-            x1="20"
-            y1="300"
-            x2="220"
-            y2="300"
-            stroke="black"
-            strokeWidth="1"
-          />
-          {/* <!--손가락 번호--> */}
-          {frets.map((fret: Fret, index: number) => {
-            const string: number = fret.string;
-            const fretNumber: number = fret.fret;
-            const to_barre = fret.barre?.to_string;
-            const from_barre = fret.barre?.from_string;
-            const barre_length =
-              to_barre && from_barre ? from_barre - to_barre + 1 : 0;
-
-            return (
-              <React.Fragment>
-                <circle
-                  cx={20 + 40 * (6 - string)}
-                  cy={125 + 50 * (fretNumber - 1)}
-                  r="15"
-                  fill="black"
-                  key={`fret-circle-${index}`}
-                />
-                {to_barre !== undefined && from_barre !== undefined && (
-                  <rect
-                    x={5 + 40 * (6 - from_barre)}
-                    y={110 + 50 * (fretNumber - 1)}
-                    width={70 + 40 * (barre_length - 2)}
-                    height="30"
-                    rx="15"
-                  />
-                )}
-              </React.Fragment>
-            );
-          })}
-        </svg>
+          <FretNumber minFret={1} gap={40} />
+          <Table frets={frets} gap={40} />
+        </SVG>
       </SvgWrapper>
       <ButtonsWrapper>
         <Button onClick={onClickSaveAsSVG}>Save as SVG</Button>

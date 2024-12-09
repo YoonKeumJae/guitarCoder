@@ -6,30 +6,33 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  padding: 10% 20%;
+  padding: 5% 20%;
   background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
 `;
 const Title = styled.div`
-  font-size: 2rem;
+  font-size: 5rem;
   font-weight: bold;
 `;
 const Form = styled.form`
   display: flex;
   gap: 10px;
+  font-size: 1.5rem;
 `;
 const Input = styled.input`
   border-radius: 5px;
   border: 2px solid #5959d9;
+  font-size: 1.5rem;
   padding: 10px;
   :focus {
     outline: none;
   }
 `;
 const Button = styled.button`
+  font-size: 1.5rem;
   padding: 10px;
   background-color: #5959d9;
   color: white;
