@@ -5,6 +5,7 @@ import React from "react";
 import Table from "./Table";
 import IsStringOpen from "./IsStringOpen";
 import FretNumber from "./FretNumber";
+import FormContainer from "../../components/FormContainer";
 
 const Wrapper = styled.div`
   display: flex;
@@ -54,7 +55,7 @@ interface FormState {
   chord: {
     color: string;
     fingerColor: string;
-  }
+  };
   string: {
     view: boolean;
   };
@@ -176,7 +177,12 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
                 size={form.fretNumber.size}
               />
             ) : null}
-            <Table frets={frets} gap={form.chordName.gap} color={form.chord.color} fingerColor={form.chord.fingerColor}/>
+            <Table
+              frets={frets}
+              gap={form.chordName.gap}
+              color={form.chord.color}
+              fingerColor={form.chord.fingerColor}
+            />
           </SVG>
         </SvgWrapper>
         <ButtonsWrapper>
@@ -186,76 +192,96 @@ const SVGrenderer: React.FC<SVGrendererProps> = ({ chord }) => {
         </ButtonsWrapper>
       </ViewPart>
       <ControlPart>
-        <p>chord name</p>
-        <input
-          type="text"
-          value={form.chordName.name}
-          name="chordName.name"
-          onChange={(e) => onChange(e)}
-        />
-        <p>chord name size</p>
-        <input
-          type="number"
-          value={form.chordName.size}
-          name="chordName.size"
-          onChange={(e) => onChange(e)}
-        />
-        <p>chord name color</p>
-        <input
-          type="color"
-          value={form.chordName.color}
-          name="chordName.color"
-          onChange={(e) => onChange(e)}
-        />
-        <p>chord name gap</p>
-        <input
-          type="number"
-          name="chordName.gap"
-          value={form.chordName.gap}
-          onChange={(e) => onChange(e)}
-        />
-        <p>chord color</p>
-        <input
-          type="color"
-          name="chord.color"
-          value={form.chord.color}
-          onChange={(e) => onChange(e)}
-        />
-        <p>chord finger's color</p>
-        <input
-          type="color"
-          name="chord.fingerColor"
-          value={form.chord.fingerColor}
-          onChange={(e) => onChange(e)}
-        />
-        <p>show string's open</p>
-        <input
-          type="checkbox"
-          name="string.view"
-          checked={form.string.view}
-          onChange={(e) => onChange(e)}
-        />
-        <p>view fret number</p>
-        <input
-          type="checkbox"
-          name="fretNumber.view"
-          checked={form.fretNumber.view}
-          onChange={(e) => onChange(e)}
-        />
-        <p>fret number size</p>
-        <input
-          type="number"
-          value={form.fretNumber.size}
-          name="fretNumber.size"
-          onChange={(e) => onChange(e)}
-        />
-        <p>fret number color</p>
-        <input
-          type="color"
-          name="fretNumber.color"
-          value={form.fretNumber.color}
-          onChange={(e) => onChange(e)}
-        />
+        <FormContainer>
+          <p>chord name</p>
+          <input
+            type="text"
+            value={form.chordName.name}
+            name="chordName.name"
+            onChange={(e) => onChange(e)}
+          />
+        </FormContainer>
+        <FormContainer>
+          <p>chord name size</p>
+          <input
+            type="number"
+            value={form.chordName.size}
+            name="chordName.size"
+            onChange={(e) => onChange(e)}
+          />
+        </FormContainer>
+        <FormContainer>
+          <p>chord name color</p>
+          <input
+            type="color"
+            value={form.chordName.color}
+            name="chordName.color"
+            onChange={(e) => onChange(e)}
+          />
+        </FormContainer>
+        <FormContainer>
+          <p>chord name gap</p>
+          <input
+            type="number"
+            name="chordName.gap"
+            value={form.chordName.gap}
+            onChange={(e) => onChange(e)}
+          />
+        </FormContainer>
+        <FormContainer>
+          <p>chord color</p>
+          <input
+            type="color"
+            name="chord.color"
+            value={form.chord.color}
+            onChange={(e) => onChange(e)}
+          />
+        </FormContainer>
+        <FormContainer>
+          <p>chord finger's color</p>
+          <input
+            type="color"
+            name="chord.fingerColor"
+            value={form.chord.fingerColor}
+            onChange={(e) => onChange(e)}
+          />
+        </FormContainer>
+        <FormContainer>
+          <p>show string's open</p>
+          <input
+            type="checkbox"
+            name="string.view"
+            checked={form.string.view}
+            onChange={(e) => onChange(e)}
+          />
+        </FormContainer>
+        <FormContainer>
+          <p>view fret number</p>
+          <input
+            type="checkbox"
+            name="fretNumber.view"
+            checked={form.fretNumber.view}
+            onChange={(e) => onChange(e)}
+          />
+        </FormContainer>
+        <FormContainer>
+          <p>fret number size</p>
+          <input
+            type="number"
+            value={form.fretNumber.size}
+            name="fretNumber.size"
+            onChange={(e) => onChange(e)}
+          />
+        </FormContainer>
+        <FormContainer>
+          <p>fret number color</p>
+          <input
+            type="color"
+            name="fretNumber.color"
+            value={form.fretNumber.color}
+            onChange={(e) => onChange(e)}
+          />
+        </FormContainer>
       </ControlPart>
     </Wrapper>
   );
