@@ -20,7 +20,7 @@ const IsStringOpen: React.FC<IsStringOpenProps> = ({
         return (
           <Circle
             cx={50 + 40 * (6 - string)}
-            cy={40 + gap}
+            cy={40 + Number(gap)}
             r="10"
             fill="none"
             stroke="black"
@@ -36,17 +36,17 @@ const IsStringOpen: React.FC<IsStringOpenProps> = ({
           <g key={`omit${index}`}>
             <Line
               x1={40 + 40 * (6 - string)}
-              y1={30 + gap}
+              y1={30 + Number(gap)}
               x2={60 + 40 * (6 - string)}
-              y2={50 + gap}
+              y2={50 + Number(gap)}
               stroke="black"
               strokeWidth="2"
             />
             <Line
               x1={60 + 40 * (6 - string)}
-              y1={30 + gap}
+              y1={30 + Number(gap)}
               x2={40 + 40 * (6 - string)}
-              y2={50 + gap}
+              y2={50 + Number(gap)}
               stroke="black"
               strokeWidth="2"
             />
