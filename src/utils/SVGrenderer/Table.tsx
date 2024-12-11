@@ -20,54 +20,48 @@ const Table: React.FC<TableProps> = ({ frets, gap, color, fingerColor }) => {
         y1={60 + ngap}
         x2="50"
         y2={260 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="2"
-        fill={color}
       />
       <Line
         x1="90"
         y1={60 + ngap}
         x2="90"
         y2={260 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="2"
-        fill={color}
         />
       <Line
         x1="130"
         y1={60 + ngap}
         x2="130"
         y2={260 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="2"
-        fill={color}
         />
       <Line
         x1="170"
         y1={60 + ngap}
         x2="170"
         y2={260 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="2"
-        fill={color}
         />
       <Line
         x1="210"
         y1={60 + ngap}
         x2="210"
         y2={260 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="2"
-        fill={color}
         />
       <Line
         x1="250"
         y1={60 + ngap}
         x2="250"
         y2={260 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="2"
-        fill={color}
         />
       {/* <!--0번--> */}
       <Line
@@ -75,9 +69,8 @@ const Table: React.FC<TableProps> = ({ frets, gap, color, fingerColor }) => {
         y1={60 + ngap}
         x2="251"
         y2={60 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="5"
-        fill={color}
         />
       {/* <!--프렛--> */}
       <Line
@@ -85,45 +78,40 @@ const Table: React.FC<TableProps> = ({ frets, gap, color, fingerColor }) => {
         y1={60 + ngap}
         x2="250"
         y2={60 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="1"
-        fill={color}
         />
       <Line
         x1="50"
         y1={110 + ngap}
         x2="250"
         y2={110 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="1"
-        fill={color}
         />
       <Line
         x1="50"
         y1={160 + ngap}
         x2="250"
         y2={160 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="1"
-        fill={color}
         />
       <Line
         x1="50"
         y1={210 + ngap}
         x2="250"
         y2={210 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="1"
-        fill={color}
         />
       <Line
         x1="50"
         y1={260 + ngap}
         x2="250"
         y2={260 + ngap}
-        stroke="black"
+        stroke={color}
         strokeWidth="1"
-        fill={color}
       />
       {/* <!--손가락 번호--> */}
       {frets.map((fret: Fret, index: number) => {
