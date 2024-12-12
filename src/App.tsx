@@ -1,12 +1,13 @@
 import ChordGenerator from "./utils/ChordGenerator";
-import SVGrenderer from "./utils/SVGrenderer/SVGrenderer";
 import { useState } from "react";
 import styled from "styled-components";
+
+import ChordViewr from "./utils/ChordViewr";
 
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  padding: 5% 20%;
+  padding: 50px 70px;
   background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
@@ -65,7 +66,7 @@ function App() {
         />
         <Button type="submit">Submit</Button>
       </Form>
-      {chord && <SVGrenderer chord={chord} />}
+      {chord && <ChordViewr chord={chord} />}
     </Wrapper>
   );
 }

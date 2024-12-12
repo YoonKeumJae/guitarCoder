@@ -1,55 +1,68 @@
+import { ChordController } from "../ChordViewr";
+
 interface FretNumberProps {
-  minFret: number;
-  gap: number;
-  color: string;
-  size: number;
+  startFret: number;
+  controller: ChordController;
 }
 
-const FretNumber: React.FC<FretNumberProps> = ({ minFret, gap, color, size }) => {
-  const ngap = Number(gap);
+const FretNumber: React.FC<FretNumberProps> = ({ startFret, controller }) => {
+  const xlocation = controller.fretNumber.gap;
+  const ylocation =
+    controller.chordTitle.height +
+    controller.chordTitle.size +
+    controller.string.gap +
+    controller.string.size +
+    controller.chord.gap +
+    controller.body.cellHeight / 2;
+
   return (
     <g>
-      {/* 프랫 수를 나타내는 숫자 */}
-      <text
-        fontSize={size}
-        x="15"
-        y={85 + ngap}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fill={color}
-      >
-        {minFret}
-      </text>
-      <text
-        fontSize={size}
-        x="15"
-        y={85 + ngap + 50}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fill={color}
-      >
-        {minFret + 1}
-      </text>
-      <text
-        fontSize={size}
-        x="15"
-        y={85 + ngap + 100}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fill={color}
-      >
-        {minFret + 2}
-      </text>
-      <text
-        fontSize={size}
-        x="15"
-        y={85 + ngap + 150}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fill={color}
-      >
-        {minFret + 3}
-      </text>
+      {controller.fretNumber.view ? (
+        <g>
+          <text
+            fontSize={controller.fretNumber.size}
+            x={xlocation}
+            y={ylocation}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fill={controller.fretNumber.color}
+          >
+            {startFret}
+          </text>
+          <text
+            fontSize={controller.fretNumber.size}
+            x={xlocation}
+            y={ylocation + controller.body.cellHeight}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fill={controller.fretNumber.color}
+          >
+            {startFret + 1}
+          </text>
+          <text
+            fontSize={controller.fretNumber.size}
+            x={xlocation}
+            y={ylocation + controller.body.cellHeight * 2}
+            textAnchor="middle"
+            dominantBaseline="middle"
+            fill={controller.fretNumber.color}
+          >
+            {startFret + 2}
+          </text>
+          {controller.body.viewFrets === 4 ? (
+            <text
+              fontSize={controller.fretNumber.size}
+              x={xlocation}
+              y={ylocation + controller.body.cellHeight * 3}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fill={controller.fretNumber.color}
+            >
+              {startFret + 3}
+            </text>
+          ) : null}
+        </g>
+      ) : null}{" "}
     </g>
   );
 };
