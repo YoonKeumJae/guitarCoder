@@ -11,14 +11,9 @@ const ChordLocation: React.FC<ChordLocationProps> = ({
   frets,
   starting,
 }) => {
-  const xlocation = controller.fretNumber.gap * 2 + controller.fretNumber.size;
-  const ylocation =
-    controller.chordTitle.height +
-    controller.chordTitle.size +
-    controller.string.gap +
-    controller.string.size +
-    controller.chord.gap +
-    controller.body.cellHeight / 2;
+  const xlocation = controller.chord.chordX;
+  const ylocation = controller.chord.chordY;
+
   return (
     <g>
       {frets.map((fret, index) => {
@@ -28,15 +23,17 @@ const ChordLocation: React.FC<ChordLocationProps> = ({
           to_barre && from_barre ? from_barre - to_barre + 1 : 0;
         const min = fret.fret - starting;
         return (
-          <g>
+          <g key={`chord-${index}`}>
             <circle
               cx={xlocation + controller.body.cellWidth * (6 - fret.string)}
-              cy={ylocation + controller.body.cellHeight * min}
+              cy={
+                ylocation +
+                controller.body.cellHeight * min +
+                controller.body.cellHeight / 2
+              }
               r={controller.chord.size}
               fill={controller.chord.color}
-              key={`chord-${index}`}
             />
-
             {to_barre !== undefined && from_barre !== undefined && (
               <rect
                 x={
@@ -47,10 +44,12 @@ const ChordLocation: React.FC<ChordLocationProps> = ({
                 y={
                   ylocation -
                   controller.chord.size +
+                  controller.body.cellHeight / 2 +
                   controller.body.cellHeight * min
                 }
                 width={
-                  xlocation + controller.body.cellWidth * (barre_length - 2)
+                  2 * controller.chord.size +
+                  controller.body.cellWidth * (barre_length - 1)
                 }
                 height={controller.chord.size * 2}
                 rx="15"

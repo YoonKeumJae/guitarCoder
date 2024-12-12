@@ -15,13 +15,9 @@ const IsStringOpen: React.FC<IsStringOpenProps> = ({
   omitStrings,
   controller,
 }) => {
-  const xlocation = controller.fretNumber.gap * 2 + controller.fretNumber.size;
-  const ylocation =
-    controller.chordTitle.height +
-    controller.chordTitle.size +
-    controller.string.gap;
   const cellWidth = controller.body.cellWidth;
   const shapeSize = controller.string.size / 2;
+  const xlocation = controller.chord.chordX;
 
   return (
     <g>
@@ -29,7 +25,7 @@ const IsStringOpen: React.FC<IsStringOpenProps> = ({
         return (
           <Circle
             cx={xlocation + cellWidth * (6 - string)}
-            cy={ylocation + Number(controller.string.gap)}
+            cy={Number(controller.string.stringY) + shapeSize}
             r={shapeSize}
             fill="none"
             stroke={controller.string.color}
@@ -45,17 +41,17 @@ const IsStringOpen: React.FC<IsStringOpenProps> = ({
           <g key={`omit${index}`}>
             <Line
               x1={xlocation - shapeSize + cellWidth * (6 - string)}
-              y1={ylocation + shapeSize + Number(controller.string.gap)}
+              y1={shapeSize * 2 + Number(controller.string.stringY)}
               x2={xlocation + shapeSize + cellWidth * (6 - string)}
-              y2={ylocation - shapeSize + Number(controller.string.gap)}
+              y2={Number(controller.string.stringY)}
               stroke={controller.string.color}
               strokeWidth="2"
             />
             <Line
               x1={xlocation + shapeSize + cellWidth * (6 - string)}
-              y1={ylocation + shapeSize + Number(controller.string.gap)}
+              y1={2 * shapeSize + Number(controller.string.stringY)}
               x2={xlocation - shapeSize + cellWidth * (6 - string)}
-              y2={ylocation - shapeSize + Number(controller.string.gap)}
+              y2={Number(controller.string.stringY)}
               stroke={controller.string.color}
               strokeWidth="2"
             />

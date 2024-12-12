@@ -5,13 +5,8 @@ interface ChordTableProps {
 }
 
 const ChordTable: React.FC<ChordTableProps> = ({ controller }) => {
-  const xlocation = controller.fretNumber.gap * 2 + controller.fretNumber.size;
-  const ylocation =
-    controller.chordTitle.height +
-    controller.chordTitle.size +
-    controller.string.gap +
-    controller.string.size +
-    controller.chord.gap;
+  const xlocation = controller.chord.chordX;
+  const ylocation = controller.chord.chordY;
 
   const colLine = () => {
     const lines = [];
