@@ -1,4 +1,4 @@
-import { ChordController } from "../ChordViewr";
+import { ChordController } from "./ChordViewr";
 
 interface FretNumberProps {
   startFret: number;

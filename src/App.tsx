@@ -1,8 +1,8 @@
-import ChordGenerator from "./utils/ChordGenerator";
+import ChordGenerator from "./utils/SVGrenderer/ChordGenerator";
 import { useState } from "react";
 import styled from "styled-components";
 
-import ChordViewr from "./utils/ChordViewr";
+import ChordViewr from "./utils/SVGrenderer/ChordViewr";
 
 const Wrapper = styled.div`
   width: 100%;

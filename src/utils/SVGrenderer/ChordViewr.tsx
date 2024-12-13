@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { useState } from "react";
-import ChordRenderer from "./ChordRenderer";
-import FormContainer from "../components/FormContainer";
+import { useRef, useState } from "react";
+import ChordRenderer from "../SVGrenderer/ChordRenderer";
+import FormContainer from "../../components/FormContainer";
+import ImageDownloader from "./ImageDownloader";
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,6 +26,13 @@ const SideBox = styled.div`
 
 const FormWrapper = styled(SideBox)`
   justify-content: flex-start;
+`;
+
+const Button = styled.button``;
+const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 `;
 
 interface ChordViewrProps {
@@ -100,9 +108,35 @@ const ChordViewr: React.FC<ChordViewrProps> = ({ chord }) => {
       size: 14,
       withFinger: true,
       chordY: 150,
-      chordX: 50,
+      chordX: 55,
     },
   });
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  const onClickSaveAsSVG = () => {
+    const svgElement = svgRef.current;
+    if (!svgElement) return;
+    const serializer = new XMLSerializer();
+    const svgData = serializer.serializeToString(svgElement);
+    const blob = new Blob([svgData], { type: "image/svg+xml" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `GuitarChorder-${chord.chordInfo.name}.svg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  const onClickSaveAsPNG = () => {
+    const svgElement = svgRef.current;
+    if (!svgElement) return;
+    ImageDownloader(svgElement, "png", chord.chordInfo.name);
+  };
+  const onClickSaveAsJPG = () => {
+    const svgElement = svgRef.current;
+    if (!svgElement) return;
+    ImageDownloader(svgElement, "jpg", chord.chordInfo.name);
+  };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -124,7 +158,12 @@ const ChordViewr: React.FC<ChordViewrProps> = ({ chord }) => {
   return (
     <Wrapper>
       <SideBox>
-        <ChordRenderer controller={form} data={chord} />
+        <ChordRenderer controller={form} data={chord} ref={svgRef} />
+        <ButtonsWrapper>
+          <Button onClick={onClickSaveAsSVG}>SVG</Button>
+          <Button onClick={onClickSaveAsPNG}>PNG</Button>
+          <Button onClick={onClickSaveAsJPG}>JPG</Button>
+        </ButtonsWrapper>
       </SideBox>
       <FormWrapper>
         <FormContainer>
