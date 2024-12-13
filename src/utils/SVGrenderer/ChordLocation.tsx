@@ -24,6 +24,37 @@ const ChordLocation: React.FC<ChordLocationProps> = ({
         const min = fret.fret - starting;
         return (
           <g key={`chord-${index}`}>
+            {/* 손가락 번호 표시를 투명하게 하고 싶을 경우에는 아래 코드를 주석 해제한다. 
+            단, Table.tsx의 코드 또한 마스킹 처리 되도록 수정해야 한다.  */}
+            {/* <defs>
+              <mask id={`mask-${index}-${fret.finger}`}>
+                <circle
+                  cx={xlocation + controller.body.cellWidth * (6 - fret.string)}
+                  cy={
+                    ylocation +
+                    controller.body.cellHeight * min +
+                    controller.body.cellHeight / 2
+                  }
+                  r={controller.chord.size}
+                  fill="white"
+                />
+                <text
+                  x={xlocation + controller.body.cellWidth * (6 - fret.string)}
+                  y={
+                    ylocation +
+                    controller.body.cellHeight * min +
+                    controller.body.cellHeight / 2
+                  }
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                  fontSize={controller.chord.size}
+                  fontWeight="bold"
+                  fill="black"
+                >
+                  {fret.finger}
+                </text>
+              </mask>
+            </defs> */}
             <circle
               cx={xlocation + controller.body.cellWidth * (6 - fret.string)}
               cy={
@@ -33,7 +64,27 @@ const ChordLocation: React.FC<ChordLocationProps> = ({
               }
               r={controller.chord.size}
               fill={controller.chord.color}
+              mask={
+                controller.chord.withFinger
+                  ? `url(#mask-${index}-${fret.finger})`
+                  : undefined
+              }
             />
+            <text
+              x={xlocation + controller.body.cellWidth * (6 - fret.string)}
+              y={
+                ylocation +
+                controller.body.cellHeight * min +
+                controller.body.cellHeight / 2
+              }
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fontSize={controller.chord.size}
+              fontWeight="bold"
+              fill={controller.chord.fingerColor}
+            >
+              {fret.finger}
+            </text>
             {to_barre !== undefined && from_barre !== undefined && (
               <rect
                 x={

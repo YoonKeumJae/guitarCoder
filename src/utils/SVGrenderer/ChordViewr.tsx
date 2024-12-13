@@ -70,6 +70,7 @@ export interface ChordController {
     color: string;
     size: number;
     withFinger: boolean;
+    fingerColor: string;
     chordY: number;
     chordX: number;
   };
@@ -109,6 +110,7 @@ const ChordViewr: React.FC<ChordViewrProps> = ({ chord }) => {
       withFinger: true,
       chordY: 150,
       chordX: 55,
+      fingerColor: "#ffffff",
     },
   });
   const svgRef = useRef<SVGSVGElement>(null);
@@ -373,6 +375,15 @@ const ChordViewr: React.FC<ChordViewrProps> = ({ chord }) => {
             type="checkbox"
             checked={form.chord.withFinger}
             name="chord.withFinger"
+            onChange={onChange}
+          />
+        </FormContainer>
+        <FormContainer>
+          <p>Finger number color</p>
+          <input
+            type="color"
+            value={form.chord.fingerColor}
+            name="chord.fingerColor"
             onChange={onChange}
           />
         </FormContainer>
