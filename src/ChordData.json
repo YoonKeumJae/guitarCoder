@@ -22,6 +22,30 @@
     {
       "renderingInfo": {
         "usingFret": 3,
+        "startingFret": 3
+      },
+      "stringInfo": {
+        "omitStrings": []
+      },
+      "chordInfo": {
+        "name": "Cm",
+        "description": "Standard C minor chord (barre chord)",
+        "frets": [
+          {
+            "string": 5,
+            "fret": 3,
+            "finger": 1,
+            "barre": { "from_string": 5, "to_string": 1 }
+          },
+          { "string": 4, "fret": 5, "finger": 3 },
+          { "string": 3, "fret": 5, "finger": 4 },
+          { "string": 2, "fret": 4, "finger": 2 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
         "startingFret": 1
       },
       "stringInfo": {
@@ -44,6 +68,26 @@
         "startingFret": 1
       },
       "stringInfo": {
+        "openStrings": [4, 5],
+        "omitStrings": [6]
+      },
+      "chordInfo": {
+        "name": "Dm",
+        "description": "Standard D minor chord",
+        "frets": [
+          { "string": 3, "fret": 2, "finger": 2 },
+          { "string": 2, "fret": 3, "finger": 3 },
+          { "string": 1, "fret": 1, "finger": 1 }
+        ]
+      }
+    },
+
+    {
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 1
+      },
+      "stringInfo": {
         "openStrings": [6, 3, 2, 1]
       },
       "chordInfo": {
@@ -53,6 +97,23 @@
           { "string": 5, "fret": 2, "finger": 2 },
           { "string": 4, "fret": 2, "finger": 3 },
           { "string": 3, "fret": 1, "finger": 1 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 1
+      },
+      "stringInfo": {
+        "openStrings": [1, 2, 3, 6]
+      },
+      "chordInfo": {
+        "name": "Em",
+        "description": "Standard E minor chord",
+        "frets": [
+          { "string": 5, "fret": 2, "finger": 2 },
+          { "string": 4, "fret": 2, "finger": 3 }
         ]
       }
     },
@@ -86,6 +147,29 @@
         "startingFret": 1
       },
       "stringInfo": {
+        "omitStrings": []
+      },
+      "chordInfo": {
+        "name": "Fm",
+        "description": "Standard F minor chord (barre chord)",
+        "frets": [
+          {
+            "string": 6,
+            "fret": 1,
+            "finger": 1,
+            "barre": { "from_string": 6, "to_string": 1 }
+          },
+          { "string": 5, "fret": 3, "finger": 3 },
+          { "string": 4, "fret": 3, "finger": 4 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 1
+      },
+      "stringInfo": {
         "openStrings": [4, 3, 2]
       },
       "chordInfo": {
@@ -95,6 +179,29 @@
           { "string": 6, "fret": 3, "finger": 3 },
           { "string": 5, "fret": 2, "finger": 2 },
           { "string": 1, "fret": 3, "finger": 4 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 3
+      },
+      "stringInfo": {
+        "omitStrings": []
+      },
+      "chordInfo": {
+        "name": "Gm",
+        "description": "Standard G minor chord (barre chord)",
+        "frets": [
+          {
+            "string": 6,
+            "fret": 3,
+            "finger": 1,
+            "barre": { "from_string": 6, "to_string": 1 }
+          },
+          { "string": 5, "fret": 5, "finger": 3 },
+          { "string": 4, "fret": 5, "finger": 4 }
         ]
       }
     },
@@ -120,6 +227,24 @@
     {
       "renderingInfo": {
         "usingFret": 3,
+        "startingFret": 1
+      },
+      "stringInfo": {
+        "openStrings": [1, 5, 6]
+      },
+      "chordInfo": {
+        "name": "Am",
+        "description": "Standard A minor chord",
+        "frets": [
+          { "string": 4, "fret": 2, "finger": 2 },
+          { "string": 3, "fret": 2, "finger": 3 },
+          { "string": 2, "fret": 1, "finger": 1 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
         "startingFret": 2
       },
       "stringInfo": {
@@ -138,6 +263,28 @@
           { "string": 4, "fret": 4, "finger": 3 },
           { "string": 3, "fret": 4, "finger": 4 },
           { "string": 2, "fret": 4, "finger": 2 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 2
+      },
+      "stringInfo": {},
+      "chordInfo": {
+        "name": "Bm",
+        "description": "Standard B minor chord (barre chord)",
+        "frets": [
+          {
+            "string": 5,
+            "fret": 2,
+            "finger": 1,
+            "barre": { "from_string": 5, "to_string": 1 }
+          },
+          { "string": 4, "fret": 4, "finger": 3 },
+          { "string": 3, "fret": 4, "finger": 4 },
+          { "string": 2, "fret": 3, "finger": 2 }
         ]
       }
     }
