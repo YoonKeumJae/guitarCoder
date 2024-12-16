@@ -70,21 +70,23 @@ const ChordLocation: React.FC<ChordLocationProps> = ({
                   : undefined
               }
             />
-            <text
-              x={xlocation + controller.body.cellWidth * (6 - fret.string)}
-              y={
-                ylocation +
-                controller.body.cellHeight * min +
-                controller.body.cellHeight / 2
-              }
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fontSize={controller.chord.size}
-              fontWeight="bold"
-              fill={controller.chord.fingerColor}
-            >
-              {fret.finger}
-            </text>
+            {controller.chord.withFinger && (
+              <text
+                x={xlocation + controller.body.cellWidth * (6 - fret.string)}
+                y={
+                  ylocation +
+                  controller.body.cellHeight * min +
+                  controller.body.cellHeight / 2
+                }
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontSize={controller.chord.size}
+                fontWeight="bold"
+                fill={controller.chord.fingerColor}
+              >
+                {fret.finger}
+              </text>
+            )}
             {to_barre !== undefined && from_barre !== undefined && (
               <rect
                 x={
