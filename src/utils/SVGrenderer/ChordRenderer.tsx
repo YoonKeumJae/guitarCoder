@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ChordController } from "./ChordViewr";
+import { ChordController } from "./ChordViewer";
 import IsStringOpen from "./IsStringOpen";
 import FretNumber from "./FretNumber";
 import ChordTable from "./ChordTable";
@@ -14,15 +14,8 @@ const Wrapper = styled.div`
   overflow: hidden;
   border: 4px solid #5959d9;
   border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 `;
-interface SVGProps {
-  backgroundcolor: string;
-}
-
-const SVG = styled.svg<SVGProps>`
-  background-color: ${(props) => props.backgroundcolor};
-`;
-
 interface ChordRendererProps {
   controller: ChordController;
   data: Chord;
@@ -33,12 +26,15 @@ const ChordRenderer = forwardRef<SVGSVGElement, ChordRendererProps>(
   ({ controller, data }, ref) => {
     return (
       <Wrapper>
-        <SVG
+        <svg
           width={controller.body.fullWidth}
           height={controller.body.fullHeight}
           xmlns="http://www.w3.org/2000/svg"
-          backgroundcolor={controller.body.backgroundColor}
           ref={ref}
+          style={{
+            backgroundColor: controller.body.backgroundColor,
+            fontFamily: "Quicksand",
+          }}
         >
           <rect
             width="100%"
@@ -73,7 +69,7 @@ const ChordRenderer = forwardRef<SVGSVGElement, ChordRendererProps>(
             frets={data.chordInfo.frets}
             starting={data.renderingInfo.startingFret}
           />
-        </SVG>
+        </svg>
       </Wrapper>
     );
   }

@@ -2,7 +2,7 @@ import ChordGenerator from "./utils/SVGrenderer/ChordGenerator";
 import { useState } from "react";
 import styled from "styled-components";
 
-import ChordViewr from "./utils/SVGrenderer/ChordViewr";
+import ChordViewr from "./utils/SVGrenderer/ChordViewer";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -31,6 +31,11 @@ const Input = styled.input`
   :focus {
     outline: none;
   }
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  outline: none;
+  &:hover {
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.5);
+  }
 `;
 const Button = styled.button`
   font-size: 1.5rem;
@@ -39,6 +44,11 @@ const Button = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  &:hover {
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.5);
+  }
 `;
 
 function App() {

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import HSSantokkiRegular from "/HSSantokki-Regular.ttf";
+import Quicksand from "/Quicksand_Book_Oblique.otf";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -9,13 +9,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
   @font-face {
-    font-family: 'HSSantokki-Regular';
-        src: local('HSSantokki-Regular'), local('HSSantokki-Regular');
+    font-family: Quicksand;
         font-style: normal;
-        src: url(${HSSantokkiRegular}) format('truetype');
+        src: url(${Quicksand}) format('opentype');
   }
   body, * {
-    font-family: 'HSSantokki-Regular', sans-serif;
+    font-family: 'Quicksand', sans-serif;
   }
 `;
 

@@ -1,4 +1,4 @@
-import { ChordController } from "./ChordViewr";
+import { ChordController } from "./ChordViewer";
 
 interface ChordLocationProps {
   controller: ChordController;

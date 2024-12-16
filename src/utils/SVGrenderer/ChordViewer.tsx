@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { useRef, useState } from "react";
-import ChordRenderer from "../SVGrenderer/ChordRenderer";
-import FormContainer from "../../components/FormContainer";
+import ChordRenderer from "./ChordRenderer";
+// import FormContainer from "../../components/FormContainer";
 import ImageDownloader from "./ImageDownloader";
+
+// 사용자가 코드 레이아웃 수정할 수 있게 수정할 시 주석 해제
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,18 +20,31 @@ const SideBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 4px solid #5959d9;
+  /* border: 4px solid #5959d9;
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: #ffffff; */
   overflow: auto;
 `;
 
-const FormWrapper = styled(SideBox)`
-  justify-content: flex-start;
-`;
+// const FormWrapper = styled(SideBox)`
+//   justify-content: flex-start;
+// `;
 
-const Button = styled.button``;
+const Button = styled.button`
+  border: none;
+  background-color: #5959d9;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  &:hover {
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.5);
+  }
+`;
 const ButtonsWrapper = styled.div`
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -75,7 +90,7 @@ export interface ChordController {
     chordX: number;
   };
 }
-const ChordViewr: React.FC<ChordViewrProps> = ({ chord }) => {
+const ChordViewer: React.FC<ChordViewrProps> = ({ chord }) => {
   const [form, setForm] = useState<ChordController>({
     body: {
       fullWidth: 300,
@@ -167,7 +182,7 @@ const ChordViewr: React.FC<ChordViewrProps> = ({ chord }) => {
           <Button onClick={onClickSaveAsJPG}>JPG</Button>
         </ButtonsWrapper>
       </SideBox>
-      <FormWrapper>
+      {/* <FormWrapper>
         <FormContainer>
           <p>SVG background color</p>
           <input
@@ -387,9 +402,9 @@ const ChordViewr: React.FC<ChordViewrProps> = ({ chord }) => {
             onChange={onChange}
           />
         </FormContainer>
-      </FormWrapper>
+      </FormWrapper> */}
     </Wrapper>
   );
 };
 
-export default ChordViewr;
+export default ChordViewer;

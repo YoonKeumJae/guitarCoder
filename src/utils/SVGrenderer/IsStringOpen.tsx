@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ChordController } from "./ChordViewr";
+import { ChordController } from "./ChordViewer";
 
 const Circle = styled.circle``;
 const Line = styled.line``;
