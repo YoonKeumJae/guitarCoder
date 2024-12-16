@@ -1,57 +1,145 @@
 {
   "chords": [
     {
-      "name": "C",
-      "frets": [
-        { "string": 5, "fret": 3, "finger": 3 },
-        { "string": 4, "fret": 2, "finger": 2 },
-        { "string": 2, "fret": 1, "finger": 1 }
-      ],
-      "description": "Standard C major chord",
-      "omit_strings": [6],
-      "open_strings": [3, 1]
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 1
+      },
+      "stringInfo": {
+        "openStrings": [5, 4, 1],
+        "omitStrings": [6]
+      },
+      "chordInfo": {
+        "name": "C",
+        "description": "Standard C major chord",
+        "frets": [
+          { "string": 5, "fret": 3, "finger": 3 },
+          { "string": 4, "fret": 2, "finger": 2 },
+          { "string": 2, "fret": 1, "finger": 1 }
+        ]
+      }
     },
     {
-      "name": "G",
-      "frets": [
-        { "string": 6, "fret": 3, "finger": 3 },
-        { "string": 5, "fret": 2, "finger": 2 },
-        { "string": 1, "fret": 3, "finger": 4 }
-      ],
-      "description": "Standard G major chord",
-      "open_strings": [4, 3, 2]
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 1
+      },
+      "stringInfo": {
+        "openStrings": [4, 1],
+        "omitStrings": [6, 5]
+      },
+      "chordInfo": {
+        "name": "D",
+        "description": "Standard D major chord",
+        "frets": [
+          { "string": 3, "fret": 2, "finger": 1 },
+          { "string": 2, "fret": 3, "finger": 3 },
+          { "string": 1, "fret": 2, "finger": 2 }
+        ]
+      }
     },
     {
-      "name": "F",
-      "frets": [
-        {
-          "string": 6,
-          "fret": 1,
-          "finger": 1,
-          "barre": { "from_string": 6, "to_string": 1 }
-        },
-        { "string": 5, "fret": 3, "finger": 3 },
-        { "string": 4, "fret": 3, "finger": 4 },
-        { "string": 3, "fret": 2, "finger": 2 }
-      ],
-      "description": "Full F major barre chord",
-      "omit_strings": []
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 1
+      },
+      "stringInfo": {
+        "openStrings": [6, 3, 2, 1]
+      },
+      "chordInfo": {
+        "name": "E",
+        "description": "Standard E major chord",
+        "frets": [
+          { "string": 5, "fret": 2, "finger": 2 },
+          { "string": 4, "fret": 2, "finger": 3 },
+          { "string": 3, "fret": 1, "finger": 1 }
+        ]
+      }
     },
     {
-      "name": "Bm",
-      "frets": [
-        {
-          "string": 5,
-          "fret": 2,
-          "finger": 1,
-          "barre": { "from_string": 5, "to_string": 1 }
-        },
-        { "string": 4, "fret": 4, "finger": 3 },
-        { "string": 3, "fret": 4, "finger": 4 },
-        { "string": 2, "fret": 3, "finger": 2 }
-      ],
-      "description": "B minor barre chord",
-      "omit_strings": [6]
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 1
+      },
+      "stringInfo": {
+        "omitStrings": []
+      },
+      "chordInfo": {
+        "name": "F",
+        "description": "Standard F major chord (barre chord)",
+        "frets": [
+          {
+            "string": 6,
+            "fret": 1,
+            "finger": 1,
+            "barre": { "from_string": 6, "to_string": 1 }
+          },
+          { "string": 5, "fret": 3, "finger": 3 },
+          { "string": 4, "fret": 3, "finger": 4 },
+          { "string": 3, "fret": 2, "finger": 2 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 1
+      },
+      "stringInfo": {
+        "openStrings": [4, 3, 2]
+      },
+      "chordInfo": {
+        "name": "G",
+        "description": "Standard G major chord",
+        "frets": [
+          { "string": 6, "fret": 3, "finger": 3 },
+          { "string": 5, "fret": 2, "finger": 2 },
+          { "string": 1, "fret": 3, "finger": 4 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 1
+      },
+      "stringInfo": {
+        "openStrings": [5, 1],
+        "omitStrings": [6]
+      },
+      "chordInfo": {
+        "name": "A",
+        "description": "Standard A major chord",
+        "frets": [
+          { "string": 4, "fret": 2, "finger": 2 },
+          { "string": 3, "fret": 2, "finger": 3 },
+          { "string": 2, "fret": 2, "finger": 4 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 2
+      },
+      "stringInfo": {
+        "omitStrings": [6]
+      },
+      "chordInfo": {
+        "name": "B",
+        "description": "Standard B major chord (barre chord)",
+        "frets": [
+          {
+            "string": 5,
+            "fret": 2,
+            "finger": 1,
+            "barre": { "from_string": 5, "to_string": 1 }
+          },
+          { "string": 4, "fret": 4, "finger": 3 },
+          { "string": 3, "fret": 4, "finger": 4 },
+          { "string": 2, "fret": 4, "finger": 2 }
+        ]
+      }
     }
   ]
 }
