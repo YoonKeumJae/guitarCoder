@@ -1,6 +1,7 @@
 import ChordGenerator from "./utils/SVGrenderer/ChordGenerator";
 import { useState } from "react";
 import styled from "styled-components";
+import Footer from "./components/Footer";
 
 import ChordViewr from "./utils/SVGrenderer/ChordViewer";
 
@@ -77,6 +78,8 @@ function App() {
         <Button type="submit">Submit</Button>
       </Form>
       {chord && <ChordViewr chord={chord} />}
+      <hr style={{ border: "1px solid #d6d6d6", width: "100%" }} />
+      <Footer />
     </Wrapper>
   );
 }
