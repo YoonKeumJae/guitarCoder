@@ -88,26 +88,48 @@ const ChordLocation: React.FC<ChordLocationProps> = ({
               </text>
             )}
             {to_barre !== undefined && from_barre !== undefined && (
-              <rect
-                x={
-                  xlocation -
-                  controller.chord.size +
-                  controller.body.cellWidth * (6 - from_barre)
-                }
-                y={
-                  ylocation -
-                  controller.chord.size +
-                  controller.body.cellHeight / 2 +
-                  controller.body.cellHeight * min
-                }
-                width={
-                  2 * controller.chord.size +
-                  controller.body.cellWidth * (barre_length - 1)
-                }
-                height={controller.chord.size * 2}
-                rx="15"
-                fill={controller.chord.color}
-              />
+              <g>
+                <rect
+                  x={
+                    xlocation -
+                    controller.chord.size +
+                    controller.body.cellWidth * (6 - from_barre)
+                  }
+                  y={
+                    ylocation -
+                    controller.chord.size +
+                    controller.body.cellHeight / 2 +
+                    controller.body.cellHeight * min
+                  }
+                  width={
+                    2 * controller.chord.size +
+                    controller.body.cellWidth * (barre_length - 1)
+                  }
+                  height={controller.chord.size * 2}
+                  rx="15"
+                  fill={controller.chord.color}
+                />
+                {controller.chord.withFinger && (
+                  <text
+                    x={
+                      (2 * controller.chord.size +
+                        controller.body.cellWidth * (barre_length - 1)) /
+                        2 +
+                      xlocation -
+                      controller.chord.size +
+                      controller.body.cellWidth * (6 - from_barre)
+                    }
+                    y={ylocation + controller.body.cellHeight / 2}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontSize={controller.chord.size}
+                    fontWeight="bold"
+                    fill={controller.chord.fingerColor}
+                  >
+                    {fret.finger}
+                  </text>
+                )}
+              </g>
             )}
           </g>
         );
