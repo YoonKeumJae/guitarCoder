@@ -46,6 +46,31 @@
     {
       "renderingInfo": {
         "usingFret": 3,
+        "startingFret": 4
+      },
+      "stringInfo": {
+        "omitStrings": []
+      },
+      "chordInfo": {
+        "name": "C#",
+        "description": "C# major chord (barre chord)",
+        "frets": [
+          {
+            "string": 5,
+            "fret": 4,
+            "finger": 1,
+            "barre": { "from_string": 5, "to_string": 1 }
+          },
+          { "string": 4, "fret": 6, "finger": 3 },
+          { "string": 3, "fret": 6, "finger": 4 },
+          { "string": 2, "fret": 6, "finger": 2 }
+        ]
+      }
+    },
+
+    {
+      "renderingInfo": {
+        "usingFret": 3,
         "startingFret": 1
       },
       "stringInfo": {
@@ -81,7 +106,30 @@
         ]
       }
     },
-
+    {
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 6
+      },
+      "stringInfo": {
+        "omitStrings": []
+      },
+      "chordInfo": {
+        "name": "D#",
+        "description": "D# major chord (barre chord)",
+        "frets": [
+          {
+            "string": 5,
+            "fret": 6,
+            "finger": 1,
+            "barre": { "from_string": 5, "to_string": 1 }
+          },
+          { "string": 4, "fret": 8, "finger": 3 },
+          { "string": 3, "fret": 8, "finger": 4 },
+          { "string": 2, "fret": 8, "finger": 2 }
+        ]
+      }
+    },
     {
       "renderingInfo": {
         "usingFret": 3,
@@ -167,6 +215,30 @@
     {
       "renderingInfo": {
         "usingFret": 3,
+        "startingFret": 2
+      },
+      "stringInfo": {
+        "omitStrings": []
+      },
+      "chordInfo": {
+        "name": "F#",
+        "description": "F# major chord (barre chord)",
+        "frets": [
+          {
+            "string": 6,
+            "fret": 2,
+            "finger": 1,
+            "barre": { "from_string": 6, "to_string": 1 }
+          },
+          { "string": 5, "fret": 4, "finger": 3 },
+          { "string": 4, "fret": 4, "finger": 4 },
+          { "string": 3, "fret": 3, "finger": 2 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
         "startingFret": 1
       },
       "stringInfo": {
@@ -208,6 +280,30 @@
     {
       "renderingInfo": {
         "usingFret": 3,
+        "startingFret": 4
+      },
+      "stringInfo": {
+        "omitStrings": []
+      },
+      "chordInfo": {
+        "name": "G#",
+        "description": "G# major chord (barre chord)",
+        "frets": [
+          {
+            "string": 6,
+            "fret": 4,
+            "finger": 1,
+            "barre": { "from_string": 6, "to_string": 1 }
+          },
+          { "string": 5, "fret": 6, "finger": 3 },
+          { "string": 4, "fret": 6, "finger": 4 },
+          { "string": 3, "fret": 5, "finger": 2 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
         "startingFret": 1
       },
       "stringInfo": {
@@ -239,6 +335,30 @@
           { "string": 4, "fret": 2, "finger": 2 },
           { "string": 3, "fret": 2, "finger": 3 },
           { "string": 2, "fret": 1, "finger": 1 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 6
+      },
+      "stringInfo": {
+        "omitStrings": []
+      },
+      "chordInfo": {
+        "name": "A#",
+        "description": "A# major chord (barre chord)",
+        "frets": [
+          {
+            "string": 6,
+            "fret": 6,
+            "finger": 1,
+            "barre": { "from_string": 6, "to_string": 1 }
+          },
+          { "string": 5, "fret": 8, "finger": 3 },
+          { "string": 4, "fret": 8, "finger": 4 },
+          { "string": 3, "fret": 7, "finger": 2 }
         ]
       }
     },
@@ -285,6 +405,30 @@
           { "string": 4, "fret": 4, "finger": 3 },
           { "string": 3, "fret": 4, "finger": 4 },
           { "string": 2, "fret": 3, "finger": 2 }
+        ]
+      }
+    },
+    {
+      "renderingInfo": {
+        "usingFret": 3,
+        "startingFret": 8
+      },
+      "stringInfo": {
+        "omitStrings": []
+      },
+      "chordInfo": {
+        "name": "B#",
+        "description": "B# major chord (theoretically equivalent to C major)",
+        "frets": [
+          {
+            "string": 5,
+            "fret": 8,
+            "finger": 1,
+            "barre": { "from_string": 5, "to_string": 1 }
+          },
+          { "string": 4, "fret": 10, "finger": 3 },
+          { "string": 3, "fret": 10, "finger": 4 },
+          { "string": 2, "fret": 9, "finger": 2 }
         ]
       }
     }
