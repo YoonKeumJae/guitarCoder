@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  overflow-y: scroll;
 `;
 const Title = styled.div`
   font-size: 5rem;
