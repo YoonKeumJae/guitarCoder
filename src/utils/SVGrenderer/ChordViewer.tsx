@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import ChordRenderer from "./ChordRenderer";
 // import FormContainer from "../../components/FormContainer";
 import ImageDownloader from "./ImageDownloader";
@@ -91,7 +91,45 @@ export interface ChordController {
   };
 }
 const ChordViewer: React.FC<ChordViewrProps> = ({ chord }) => {
-  const [form, setForm] = useState<ChordController>({
+  // const [form, setForm] = useState<ChordController>({
+  //   body: {
+  //     fullWidth: 300,
+  //     fullHeight: 340,
+  //     cellWidth: 40,
+  //     cellHeight: 50,
+  //     color: "#000000",
+  //     viewFrets: 3, // 몇 개의 프렛을 보여줄 것인가?
+  //     backgroundColor: "#ffffff",
+  //   },
+  //   chordTitle: {
+  //     description: "",
+  //     size: 70,
+  //     color: "#000000",
+  //     chordTitleY: 65,
+  //   },
+  //   string: {
+  //     view: true,
+  //     color: "#000000",
+  //     stringY: 120,
+  //     size: 20,
+  //   },
+  //   fretNumber: {
+  //     view: true,
+  //     color: "#000000",
+  //     size: 30,
+  //     fretNumberX: 20,
+  //   },
+  //   chord: {
+  //     color: "#000000",
+  //     size: 14,
+  //     withFinger: true,
+  //     chordY: 150,
+  //     chordX: 55,
+  //     fingerColor: "#ffffff",
+  //   },
+  // });
+
+  const form = {
     body: {
       fullWidth: 300,
       fullHeight: 340,
@@ -127,7 +165,7 @@ const ChordViewer: React.FC<ChordViewrProps> = ({ chord }) => {
       chordX: 55,
       fingerColor: "#ffffff",
     },
-  });
+  };
   const svgRef = useRef<SVGSVGElement>(null);
 
   const onClickSaveAsSVG = () => {
@@ -155,22 +193,22 @@ const ChordViewer: React.FC<ChordViewrProps> = ({ chord }) => {
     ImageDownloader(svgElement, "jpg", chord.chordInfo.name);
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    const [category, key] = name.split(".");
-    setForm((prevForm) => ({
-      ...prevForm,
-      [category]: {
-        ...prevForm[category as keyof ChordController],
-        [key]:
-          type === "checkbox"
-            ? checked
-            : type === "number"
-            ? Number(value)
-            : value,
-      },
-    }));
-  };
+  // const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value, type, checked } = e.target;
+  //   const [category, key] = name.split(".");
+  //   setForm((prevForm) => ({
+  //     ...prevForm,
+  //     [category]: {
+  //       ...prevForm[category as keyof ChordController],
+  //       [key]:
+  //         type === "checkbox"
+  //           ? checked
+  //           : type === "number"
+  //           ? Number(value)
+  //           : value,
+  //     },
+  //   }));
+  // };
 
   return (
     <Wrapper>
